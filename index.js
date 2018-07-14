@@ -5,7 +5,7 @@ var defaults = require('lodash.defaults');
 var parseCss = require('css-parse');
 var path = require('path');
 
-var PLUGIN_NAME = 'gulp-combine-media-queries';
+var PLUGIN_NAME = 'gulp-fuse-media-queries';
 
 module.exports = function(options) {
   'use strict';
@@ -149,7 +149,7 @@ module.exports = function(options) {
     processedCSS.media.blank = [];
     processedCSS.keyframes = [];
 
-    file.contents = new Buffer(cssJson);
+    file.contents = new Buffer(JSON.stringify(cssJson));
 
     // For every rule in the stylesheet...
     cssJson.stylesheet.rules.forEach(function(rule) {
